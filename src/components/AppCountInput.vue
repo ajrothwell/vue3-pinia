@@ -1,11 +1,15 @@
 <script setup>
+
 defineProps({
   modelValue: { type: [Number, String], default: 0 },
 });
 
 const emit = defineEmits(["update:modelValue", "input"]);
+
 const updateValue = (value) => emit("update:modelValue", value);
+
 </script>
+
 <template>
   <span>
     <button
@@ -14,7 +18,9 @@ const updateValue = (value) => emit("update:modelValue", value);
     >
       -
     </button>
+
     <input :value="modelValue" type="number" min="0" @input="updateValue" />
+    
     <button
       class="bg-gray-200 px-2 rounded-r cursor-pointer"
       @click="updateValue(modelValue + 1)"
