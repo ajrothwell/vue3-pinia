@@ -6,7 +6,12 @@ defineProps({
 
 const emit = defineEmits(["update:modelValue", "input"]);
 
-const updateValue = (value) => emit("update:modelValue", value);
+// const updateValue = (value) => emit("update:modelValue", value);
+const updateValue = (value) => {
+  if (value !== "") {
+    emit("update:modelValue", value);
+  }
+};
 
 </script>
 
@@ -19,7 +24,7 @@ const updateValue = (value) => emit("update:modelValue", value);
       -
     </button>
 
-    <input :value="modelValue" type="number" min="0" @input="updateValue" />
+    <input :value="modelValue" type="number" min="0" @input="updateValue($event.target.value)" />
     
     <button
       class="bg-gray-200 px-2 rounded-r cursor-pointer"

@@ -9,6 +9,9 @@ const props = defineProps({
 });
 
 // emits
+// we can see that ProductCard emails and addToCart event
+// and that the event is emitted when the add to cart button is pushed
+// along with the count chosen in the number input
 defineEmits(["addToCart"])
 
 // data

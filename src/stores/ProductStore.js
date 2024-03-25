@@ -2,10 +2,19 @@ import { defineStore } from 'pinia';
 
 // import products from '@/data/products.json'
 
+// convention to prefix this export name with the word "use"
+// it conforms to same convention used be vue composables
 export const useProductStore = defineStore('ProductStore', {
+
+  // state must be defined as a function that returns the initial state
+  // this allows pinia to work in both server and client side environments
   state: () => {
     return {
       // products,
+
+      // in a real life app, your data would come from an API
+      // so products would be empty to begin with, and you'd fill
+      // it from some kind of action
       products:[]
     };
   },
